@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  console.log(req.body);
+  console.log(Object.values(req.body));
 });
 
 app.listen(port, () => {
