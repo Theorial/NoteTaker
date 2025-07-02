@@ -1,0 +1,25 @@
+.notesection {
+  display: flex;
+  width: 100%;
+}
+.savenotes {
+    display: flex;;
+    flex: 2;
+}
+.Notes {
+ flex: 6;
+ background-color: red;
+ padding: 200px;
+ text-align: center;
+}
+
+.text {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 4px black solid;
+    border-radius: 10px;
+}
+.writenote {
+    
+}
