@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea, input {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#notes-container {
+  margin-top: 20px;
+}
+
+.note {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.note-title {
+  font-weight: bold;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background: red;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+}

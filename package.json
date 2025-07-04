@@ -19,8 +19,13 @@
   },
   "homepage": "https://github.com/Theorial/NoteTaker#readme",
   "dependencies": {
+<<<<<<< Updated upstream
+    "express": "^5.1.0"
+=======
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+>>>>>>> Stashed changes
   }
 }
