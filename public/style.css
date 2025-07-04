@@ -1,25 +1,54 @@
-.notesection {
+body {
+    margin: 0;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
   display: flex;
-  width: 100%;
+  flex-direction: column;
+
 }
-.savenotes {
-    display: flex;;
-    flex: 2;
+
+.header{
+    height: 100px;
+    background-color: green;
+    display: flex;
 }
-.Notes {
- flex: 6;
- background-color: red;
- padding: 200px;
- text-align: center;
+
+.body-container {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+
+.header .savebtn {
+    margin-left: auto;
+}
+.savenotes-container {
+    width: 200px;
+}
+.Notes-container{
+    background-color: red;
+    flex-grow: 1;
+}
+.Notes-container #recentnote {
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+
 }
 
 .text {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 4px black solid;
-    border-radius: 10px;
+ height: 100%;
+ width: 100%;
+    flex-grow: 1;
+   
 }
-.writenote {
+.titlet {
+    height: 50px;
+}
+
+.header .title {
+    font-size: 40px;
+    font-weight: bold;
     
 }

@@ -8,24 +8,21 @@
 </head>
 
 <body>
-<div class="title">
-  <h1>Note Pad</h1>
-  <hr>
-</div>
-<div class="notesection">
-  <div class="savenotes">
-   <h1> Save Notes </h1> 
+  <div class = "header">
+    <div class="title">Note Pad</div>
+    <button type="submit" class="savebtn" form="recentnote">Save</button>
+    <button class="deletebtn" form="recentnote">Delete</button>
+  </div> 
+  <div class ="body-container">
+  <div class="savenotes-container">
+    <h1> Save Notes </h1> 
     <p>Save your notes here. You can add, edit, and delete notes as needed.</p>
   </div>
-    <div class="Notes">
-      <div class="writenote">
-      <h1 class="write">Note Section</h1>
-    <form action="/submit" method="post">
-       <label for="note">Enter your note here:</label>
-       <input class="text" type="text" name="note" required>
-       <button type="submit" value="submit">Submit to save your notes</button>
+  <div class="Notes-container">
+    <form id="recentnote" action="/submit" method="post">
+      <input  class="titlet" type="text" name="note" placeholder="Enter your title here..." required>
+       <textarea class="text" name="note"  placeholder="Write your note here..." required></textarea>
     </form>
-    </div>
     </div>
     </form>
 </div>
