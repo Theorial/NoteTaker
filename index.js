@@ -1,35 +1,69 @@
-import express from "express";
-import bodyParser from "body-parser";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url)); 
+const saveBtn = document.querySelector(".savebtn");
+const deleteBtn = document.querySelector(".deletebtn");
+const textArea = document.querySelector(".text");
+const titleInput = document.querySelector(".titlet");
+const notesList = document.querySelector(".savenotes-container ul");
 
-const app = express();
-const port = 3000;
+let selectedIdx = null;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+function loadNotes() {
+  const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+  notesList.innerHTML = notes
+    .map(
+      (note, idx) => `
+        <div data-idx="${idx}" class="note-box${selectedIdx == idx ? ' selected' : ''}">
+          <strong>${note.title}</strong>
+        </div>
+      `
+    )
+    .join("");
+}
 
-app.use(express.static(__dirname + "/public"));
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+notesList.addEventListener("click", function(e) {
+  let target = e.target;
+  // If the user clicks the <strong>, get its parent .note-box
+  if (target.tagName === 'STRONG') {
+    target = target.parentElement;
+  }
+  if (target && target.classList.contains("note-box")) {
+    const idx = target.getAttribute("data-idx");
+    const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    const note = notes[idx];
+    if (note) {
+      titleInput.value = note.title;
+      textArea.value = note.text;
+      selectedIdx = Number(idx);
+      loadNotes();
+    }
+  }
 });
 
-app.post("/submit", (req, res, next) => {
-  console.log(Object.values(req.body));
-  res.redirect("/"); // Redirect back to the main page after submission
+deleteBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (selectedIdx !== null) {
+    let notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    notes.splice(selectedIdx, 1);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    titleInput.value = "";
+    textArea.value = "";
+    selectedIdx = null;
+    loadNotes();
+  }
 });
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+saveBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const title = titleInput.value.trim();
+  const text = textArea.value.trim();
+  if (title && text) {
+    const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    notes.push({ title, text });
+    localStorage.setItem('notes', JSON.stringify(notes));
+    titleInput.value = "";
+    textArea.value = "";
+    selectedIdx = null;
+    loadNotes();
+  }
 });
 
-app.get("/api/notes", (req, res) => {
-  // This is a placeholder for the notes API endpoint
-  res.json({ message: "This is the notes API endpoint" });
-});
-app.post("/api/notes", (req, res) => {
-  // This is a placeholder for the notes API endpoint
-  console.log(req.body);
-  res.json({ message: "Note created successfully" });
-} );
+window.addEventListener("DOMContentLoaded", loadNotes);
