@@ -5,28 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class = "header">
     <div class="title">Note Pad</div>
-    <button type="submit" class="savebtn" form="recentnote">Save</button>
+      <button type="submit" class="savebtn" form="recentnote">Save</button>
     <button class="deletebtn" form="recentnote">Delete</button>
   </div> 
   <div class ="body-container">
-  <div class="savenotes-container">
-    <h1> Save Notes </h1> 
-    <p>Save your notes here. You can add, edit, and delete notes as needed.</p>
-  </div>
-  <div class="Notes-container">
-    <form id="recentnote" action="/submit" method="post">
-      <input  class="titlet" type="text" name="note" placeholder="Enter your title here..." required>
-       <textarea class="text" name="note"  placeholder="Write your note here..." required></textarea>
-    </form>
+    <div class="savenotes-container">
+      <h1> Save Notes </h1> 
+      <ul>
+      </ul>
     </div>
-    </form>
-</div>
-
+      <div class="note-container">
+        <form id="recentnote" action="/submit" method="post">
+          <input  class="titlet" type="text" name="note" placeholder="Enter your title here..." required>
+          <textarea class="text" name="note"  placeholder="Write your note here..." required></textarea>
+        </form>
+      </div>
+     </div>
+<script src="index2.js"></script>
 </body>
 <link rel="stylesheet"  href="style.css"></hrel>
+
 </html>
