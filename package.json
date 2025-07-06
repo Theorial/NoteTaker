@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+  "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,14 +22,12 @@
     "url": "https://github.com/Theorial/NoteTaker/issues"
   },
   "homepage": "https://github.com/Theorial/NoteTaker#readme",
-  "dependencies": {
-<<<<<<< Updated upstream
-    "express": "^5.1.0"
-=======
-    "body-parser": "^2.2.0",
+
+  "devDependencies": {
+     "body-parser": "^2.2.0",
+    "nodemon": "^3.1.10",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "uuid": "^11.1.0"
->>>>>>> Stashed changes
   }
 }
