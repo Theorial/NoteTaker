@@ -21,7 +21,6 @@ function loadNotes() {
 
 notesList.addEventListener("click", function(e) {
   let target = e.target;
-  // If the user clicks the <strong>, get its parent .note-box
   if (target.tagName === 'STRONG') {
     target = target.parentElement;
   }
